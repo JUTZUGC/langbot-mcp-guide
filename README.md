@@ -82,7 +82,7 @@ LangBot 原生支持 MCP 协议（官方仓库自带 .mcp.json），stdio MCP �
 }
 ```
 
-部署完成后，直接在同一个对话框里说：
+完成后，直接在同一个对话框里说：
 
 > 把仓库克隆到固定目录（例如 C:\Users\<你>\langbot-mcp-guide），再用绝对路径把里面的 mcp-server.mjs 注册到当前工作区的 MCP 配置里
 
@@ -91,6 +91,8 @@ LangBot 原生支持 MCP 协议（官方仓库自带 .mcp.json），stdio MCP �
 **其它 MCP 客户端**：仓库根目录的 `.mcp.json` 只是通用写法（`command` + `args`），接入时同样要把 `args` 改成绝对路径。
 
 > 使用范围：该 MCP 仅在百度搭子中可用；其它客户端调用会返回 `HOST_NOT_ALLOWED`，并附带下载与部署指引。
+
+
 
 ## 常见坑
 

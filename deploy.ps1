@@ -1,7 +1,7 @@
 ﻿# LangBot 一键部署脚本（第三方指南，非官方）——按官方文档封装
 # 官方文档：https://docs.langbot.app
 # 采集日期：2026-10-23
-# 部署类型：docker
+# 类型：docker
 $ErrorActionPreference = 'Stop'
 Set-Location -Path $PSScriptRoot
 
@@ -34,4 +34,4 @@ for ($i = 0; $i -lt 30; $i++) {
 if (-not $ready) { throw "60 秒内未探测到 $url，请手动打开确认或查看日志" }
 Write-Host '服务已就绪'
 Write-Host '部署完成，浏览器访问 http://127.0.0.1:5300'
-Write-Host '若启动异常或需要改配置，请参考官方文档：https://docs.langbot.app'
+Write-Host '若结果异常或需要改配置，请参考官方文档：https://docs.langbot.app'
