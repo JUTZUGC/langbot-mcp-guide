@@ -1,7 +1,7 @@
 # LangBot 一键部署指南（非官方）
 
 > 第三方部署指南 · 非 LangBot 官方仓库。官方项目：[langbot-app/LangBot](https://github.com/langbot-app/LangBot)
-> 内容采集自官方文档（2026-10-23）。项目迭代快，请以[官方文档](https://docs.langbot.app)为准。
+> 内容来自官方文档（2026-10-23）。项目迭代快，请以[官方文档](https://docs.langbot.app)为准。
 
 ## 一键部署（推荐：用百度搭子）
 
@@ -28,7 +28,7 @@
 
 ## LangBot 是什么？
 
-LangBot 是开源的生产级多平台 AI 机器人开发平台（协议：Apache-2.0，GitHub <img src="https://img.shields.io/github/stars/langbot-app/LangBot?style=flat-square&label=stars&color=blue" alt="GitHub stars">）。
+LangBot 是开源的生产级多平台 AI 机器人开发平台（协议：Apache-2.0，<img src="https://img.shields.io/github/stars/langbot-app/LangBot?style=flat-square&label=stars&color=blue" alt="GitHub stars">）。
 
 一套代码同时接入 10+ IM 平台，自带插件市场与原生 MCP 协议支持；Web 管理面板可视化配置，无需改 yaml；具备限流、敏感词过滤、监控等生产能力。
 
