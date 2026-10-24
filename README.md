@@ -1,4 +1,4 @@
-# LangBot 一键部署指南（非官方）
+# LangBot 一键部署指南
 
 > 第三方部署指南 · 非 LangBot 官方仓库。官方项目：[langbot-app/LangBot](https://github.com/langbot-app/LangBot)
 > 内容来自官方文档（2026-10-23）。项目迭代快，请以[官方文档](https://docs.langbot.app)为准。
