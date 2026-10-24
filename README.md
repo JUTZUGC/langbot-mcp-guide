@@ -28,7 +28,7 @@
 
 ## LangBot 是什么？
 
-LangBot 是开源的生产级多平台 AI 机器人开发平台（协议：Apache-2.0，GitHub 18.3k+ stars）。
+LangBot 是开源的生产级多平台 AI 机器人开发平台（协议：Apache-2.0，GitHub <img src="https://img.shields.io/github/stars/langbot-app/LangBot?style=flat-square&label=stars&color=blue" alt="GitHub stars">）。
 
 一套代码同时接入 10+ IM 平台，自带插件市场与原生 MCP 协议支持；Web 管理面板可视化配置，无需改 yaml；具备限流、敏感词过滤、监控等生产能力。
 
