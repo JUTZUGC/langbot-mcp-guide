@@ -85,6 +85,10 @@ if (readme && guide) {
   for (const bad of ['官方 MCP', '官方MCP', '官方授权', '官方合作', '自动完成部署']) {
     if (readme.includes(bad)) fail(`README.md 出现禁词：${bad}`);
   }
+  // 裸 URL 紧跟中文/全角标点时，GitHub 自动链接会把后面的文字并进链接
+  if (/(^|[^(\[<])https?:\/\/[^\s<>)\]]*[\u4e00-\u9fff，。；：、）]/.test(readme)) {
+    fail('README.md 有裸 URL 紧跟中文或全角标点，会被自动链接吞掉后面的文字；请改成 [文字](URL)');
+  }
   if (!readme.includes(guide.project.officialRepo)) fail('README.md 未引用官方仓库链接');
   if (!readme.includes(guide.project.officialDocs)) fail('README.md 未引用官方文档链接');
   if (!readme.includes('绝对路径')) fail('README.md 的 MCP 接入段必须写明用绝对路径注册');

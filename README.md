@@ -10,7 +10,7 @@
 ⚠️ 仅支持电脑端（Windows / macOS / Linux）。手机、平板装不了也用不了。
 
 1. **装客户端**
-   打开百度搭子官网（https://www.dumate.cn/），下载电脑端并安装，用你的账号登录。
+   打开[百度搭子官网](https://www.dumate.cn/)，下载电脑端并安装，用你的账号登录。
 
 2. **发送部署指令**
    进入对话窗口，直接发这一句：
@@ -22,7 +22,7 @@
    （需本机已装 Docker；未安装时按对话提示安装。）
 
 4. **打开管理面板**
-   浏览器访问 http://127.0.0.1:5300，完成模型与 IM 平台配置。
+   浏览器访问 [http://127.0.0.1:5300](http://127.0.0.1:5300)，完成模型与 IM 平台配置。
 
 ## LangBot 是什么？
 
@@ -63,7 +63,7 @@ cd LangBot/docker
 docker compose --profile all up -d
 ```
 
-启动后浏览器访问 http://127.0.0.1:5300（管理面板）。适配器端口 2280-2285（按需映射）。（来源：https://docs.langbot.app/en/deploy/langbot/docker.md）
+启动后浏览器访问 [http://127.0.0.1:5300](http://127.0.0.1:5300)（管理面板）。适配器端口 2280-2285（按需映射）。（来源：[https://docs.langbot.app/en/deploy/langbot/docker.md](https://docs.langbot.app/en/deploy/langbot/docker.md)）
 
 ## MCP 接入
 
