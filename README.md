@@ -3,9 +3,12 @@
 > 第三方部署指南 · 非 LangBot 官方仓库。官方项目：[langbot-app/LangBot](https://github.com/langbot-app/LangBot)
 > 内容来自官方文档（2026-10-23）。项目迭代快，请以[官方文档](https://docs.langbot.app)为准。
 
+[![⚡ 一键部署](https://img.shields.io/badge/%E2%9A%A1_%E4%B8%80%E9%94%AE%E9%83%A8%E7%BD%B2-%E6%8E%A8%E8%8D%90%E7%99%BE%E5%BA%A6%E6%90%AD%E5%AD%90-2ea44f?style=for-the-badge)](#一键部署推荐用百度搭子)
+
 ## 一键部署（推荐：用百度搭子）
 
-不用自己敲命令，让 AI 帮你把 Docker 环境跑起来。
+> [!TIP]
+> 不用自己敲命令，让 AI 帮你把 Docker 环境跑起来。
 
 ⚠️ 仅支持电脑端（Windows / macOS / Linux）。手机、平板装不了也用不了。
 
