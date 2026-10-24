@@ -72,9 +72,8 @@ docker compose --profile all up -d
 | 场景 | 状态 |
 |---|---|
 | MCP 接入（百度搭子，Windows） | 已验证 2026-10-24 |
-| Docker 部署（git clone + docker compose） | 未实测 |
 
-> 「已验证」表示本机实际执行过并成功；「未实测」表示仅按官方文档整理，未跑通。
+> 本表仅列出已在本机实际执行并成功的场景；未列出的部分按官方文档整理。
 
 ## MCP 接入
 
