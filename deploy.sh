@@ -2,7 +2,7 @@
 set -euo pipefail
 # LangBot 一键部署脚本（第三方指南，非官方）——按官方文档封装
 # 官方文档：https://docs.langbot.app
-# 采集日期：2026-10-23
+# 更新日期：2026-10-23
 # 类型：docker
 cd "$(dirname "${BASH_SOURCE[0]}")"
 
