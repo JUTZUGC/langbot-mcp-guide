@@ -1,0 +1,92 @@
+# LangBot 一键部署指南（非官方）
+
+> 第三方部署指南 · 非 LangBot 官方仓库。官方项目：[langbot-app/LangBot](https://github.com/langbot-app/LangBot)
+> 内容采集自官方文档（2026-10-23）。项目迭代快，请以[官方文档](https://docs.langbot.app)为准。
+
+## 一键部署（推荐：用百度搭子）
+
+不用自己装 Docker、不用手敲命令，让 AI 陪着把环境跑起来。
+
+⚠️ 仅支持电脑端（Windows / macOS / Linux）。手机、平板装不了也用不了。
+
+1. **装客户端**
+   打开百度搭子官网（https://www.dumate.cn/），下载电脑端并安装，用你的账号登录。
+
+2. **发送部署指令**
+   进入对话窗口，直接发这一句：
+
+   > 你好，帮我从 github 部署 JUTZUGC/langbot-mcp-guide 到我的电脑上
+
+3. **跟着对话往下走**
+   AI 会协助你拉取代码、安装依赖、启动容器，按它的提示确认即可，结束时它会告诉你访问地址。
+   （能否完全自动取决于客户端当时的能力，以实际对话为准。）
+
+4. **打开管理面板**
+   浏览器访问 http://127.0.0.1:5300，完成模型与 IM 平台配置。
+
+## LangBot 是什么？
+
+LangBot 是开源的生产级多平台 AI 机器人开发平台（协议：Apache-2.0，GitHub 18.3k+ stars）。
+
+一套代码同时接入 10+ IM 平台，自带插件市场与原生 MCP 协议支持；Web 管理面板可视化配置，无需改 yaml；具备限流、敏感词过滤、监控等生产能力。
+
+- 支持平台：Discord / Telegram / Slack / LINE / QQ / 微信（企业微信、公众号）/ 飞书 / 钉钉 / KOOK / Matrix
+- 可接入模型 / 工作流：ChatGPT / DeepSeek / Dify / n8n / Coze / Claude / Gemini / GLM / Ollama
+
+（来源：[官方仓库](https://github.com/langbot-app/LangBot)）
+
+## 优缺点
+
+| 优点 | 说明 |
+|---|---|
+| 多平台一套代码 | 10+ IM 平台统一接入 |
+| 生态丰富 | 插件市场 + 原生 MCP 协议支持 |
+| 免写配置 | Web 管理面板可视化配置，无需改 yaml |
+| 生产级能力 | 限流、敏感词过滤、监控、异常处理 |
+| 开源可商用 | Apache-2.0 协议 |
+
+| 需要注意 | 说明 |
+|---|---|
+| 依赖 Docker | 完整能力需 --profile all，含 Box Runtime 沙箱 |
+| 资源占用 | 默认起 langbot / 插件运行时 / 沙箱多个容器 |
+| 公网需加固 | 互联网部署必须设置 Runtime token |
+| 平台资质门槛 | 微信 / 企微机器人需企业资质，个人先玩 QQ / 飞书 / Telegram |
+| 迭代快 | 文档以官方 docs.langbot.app 为准 |
+
+> 以上基于官方文档与社区反馈整理（2026-10-23），以官方最新文档为准。
+
+## 快速部署（官方方式）
+
+```bash
+git clone https://github.com/langbot-app/LangBot
+cd LangBot/docker
+docker compose --profile all up -d
+```
+
+启动后浏览器访问 http://127.0.0.1:5300（管理面板）。适配器端口 2280-2285（按需映射）。（来源：https://docs.langbot.app/en/deploy/langbot/docker.md）
+
+## MCP 接入
+
+LangBot 原生支持 MCP 协议（官方仓库自带 .mcp.json），stdio MCP 由 Box Runtime 托管。部署完成后可在管理面板添加 MCP 服务器与 Skills，把机器人变成真正的 Agent。
+
+本仓库自带一个零依赖的 MCP server（`mcp-server.mjs`）与 `.mcp.json`，在支持 MCP 的客户端里可直接接入：
+
+```bash
+node mcp-server.mjs
+```
+
+提供 `get_guide` / `search_guide` / `get_project_info` 三个工具，内容均来自官方文档（采集日期 2026-10-23）。
+
+> 使用范围：该 MCP 仅在百度搭子中可用；其它客户端调用会返回 `HOST_NOT_ALLOWED`，并附带下载与部署指引。
+
+## 常见坑
+
+- Docker 权限报错（No sandbox backend）：`sudo usermod -aG docker $USER && newgrp docker`
+- 公网部署：务必用 `openssl rand -hex 32` 生成 Plugin / Box Runtime token，且两端保持一致
+- 平台接入需要各平台 bot token；微信 / 企微需企业资质
+
+## 免责声明
+
+本仓库为第三方指南，与 LangBot 官方无隶属关系，不代表官方立场。
+教程基于官方文档编写（采集日期：2026-10-23），项目迭代快，请以[官方文档](https://docs.langbot.app)为准。
+因使用本教程产生的部署问题，请先在官方仓库的 issue 中检索。

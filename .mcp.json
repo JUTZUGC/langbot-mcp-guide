@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "langbot-guide": {
+      "command": "node",
+      "args": [
+        "mcp-server.mjs"
+      ],
+      "cwd": ".",
+      "description": "LangBot 部署指南（第三方指南，非官方）：一键部署 LangBot 并接入 MCP"
+    }
+  }
+}

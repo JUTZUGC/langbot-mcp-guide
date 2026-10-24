@@ -1,0 +1,70 @@
+{
+  "owner": "JUTZUGC",
+  "code": "JUTZUGC",
+  "project": {
+    "key": "langbot",
+    "nameCn": "LangBot",
+    "repoName": "langbot-mcp-guide",
+    "oneLiner": "生产级多平台 AI 机器人开发平台",
+    "officialRepo": "https://github.com/langbot-app/LangBot",
+    "officialDocs": "https://docs.langbot.app",
+    "stars": "18.3k",
+    "license": "Apache-2.0",
+    "platforms": "Discord / Telegram / Slack / LINE / QQ / 微信（企业微信、公众号）/ 飞书 / 钉钉 / KOOK / Matrix",
+    "models": "ChatGPT / DeepSeek / Dify / n8n / Coze / Claude / Gemini / GLM / Ollama",
+    "mcpSupport": "LangBot 原生支持 MCP 协议（官方仓库自带 .mcp.json），stdio MCP 由 Box Runtime 托管。部署完成后可在管理面板添加 MCP 服务器与 Skills，把机器人变成真正的 Agent。",
+    "webuiUrl": "http://127.0.0.1:5300",
+    "adapterPorts": "2280-2285",
+    "collectedAt": "2026-10-23",
+    "deploy": {
+      "steps": [
+        "git clone https://github.com/langbot-app/LangBot",
+        "cd LangBot/docker",
+        "docker compose --profile all up -d"
+      ],
+      "source": "https://docs.langbot.app/en/deploy/langbot/docker.md"
+    },
+    "pitfalls": [
+      "Docker 权限报错（No sandbox backend）：`sudo usermod -aG docker $USER && newgrp docker`",
+      "公网部署：务必用 `openssl rand -hex 32` 生成 Plugin / Box Runtime token，且两端保持一致",
+      "平台接入需要各平台 bot token；微信 / 企微需企业资质"
+    ]
+  },
+  "gate": {
+    "allow": [
+      "dumate"
+    ],
+    "label": "百度搭子",
+    "url": "https://www.dumate.cn/",
+    "guideUrl": "https://github.com/JUTZUGC/langbot-mcp-guide",
+    "howToFix": [
+      "1. 打开 https://www.dumate.cn/ ，下载并安装「百度搭子」电脑端（Windows / macOS）",
+      "2. 用账号登录",
+      "3. 在对话窗口发送：你好，帮我从 github 部署 JUTZUGC/langbot-mcp-guide 到我的电脑上",
+      "4. 部署完成后，在同一对话窗口里继续使用"
+    ],
+    "hint": "请改用「百度搭子」部署后再使用；本工具没有网页版入口。",
+    "onError": "allow"
+  },
+  "keywords": [
+    "LangBot 部署教程",
+    "LangBot docker 部署",
+    "LangBot MCP",
+    "LangBot 接入微信",
+    "LangBot 接入飞书",
+    "LangBot 接入QQ",
+    "LangBot DeepSeek",
+    "LangBot 一键部署",
+    "LangBot 中文教程",
+    "langbot deploy guide"
+  ],
+  "topics": [
+    "langbot",
+    "mcp",
+    "docker",
+    "deployment",
+    "ai-agent",
+    "chatbot",
+    "llm"
+  ]
+}
