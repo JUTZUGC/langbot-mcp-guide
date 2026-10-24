@@ -24,7 +24,9 @@ const REQUIRED = [
   'mcp-server.mjs',
   'cli.mjs',
   'deploy.sh',
+  'deploy.ps1',
   'LICENSE',
+  '.gitignore',
   'scripts/check.mjs',
   '.github/workflows/ci.yml',
 ];
@@ -67,6 +69,9 @@ if (guide) {
   if (!Array.isArray(project.pitfalls) || !project.pitfalls.length) fail('guide.json 缺少 project.pitfalls');
   if (!project.deploy || !Array.isArray(project.deploy.steps) || !project.deploy.steps.length) {
     fail('guide.json 缺少 project.deploy.steps');
+  }
+  if (project.deploy && !['docker', 'script', 'binary'].includes(project.deploy.type)) {
+    fail(`project.deploy.type 必须是 docker / script / binary：${project.deploy.type}`);
   }
 
   if (!Array.isArray(gate.allow) || !gate.allow.length) fail('gate.allow 不能为空');

@@ -10,13 +10,16 @@
     "officialDocs": "https://docs.langbot.app",
     "stars": "18.4k",
     "license": "Apache-2.0",
-    "platforms": "Discord / Telegram / Slack / LINE / QQ / 微信（企业微信、公众号）/ 飞书 / 钉钉 / KOOK / Matrix",
-    "models": "ChatGPT / DeepSeek / Dify / n8n / Coze / Claude / Gemini / GLM / Ollama",
+    "highlights": [
+      "支持平台：Discord / Telegram / Slack / LINE / QQ / 微信（企业微信、公众号）/ 飞书 / 钉钉 / KOOK / Matrix",
+      "可接入模型 / 工作流：ChatGPT / DeepSeek / Dify / n8n / Coze / Claude / Gemini / GLM / Ollama"
+    ],
     "mcpSupport": "LangBot 原生支持 MCP 协议（官方仓库自带 .mcp.json），stdio MCP 由 Box Runtime 托管。部署完成后可在管理面板添加 MCP 服务器与 Skills，把机器人变成真正的 Agent。",
     "webuiUrl": "http://127.0.0.1:5300",
     "adapterPorts": "2280-2285",
     "collectedAt": "2026-10-23",
     "deploy": {
+      "type": "docker",
       "steps": [
         "git clone https://github.com/langbot-app/LangBot",
         "cd LangBot/docker",

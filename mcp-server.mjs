@@ -62,8 +62,8 @@ function guideText() {
     ...project.deploy.steps,
     '```',
     '',
-    `管理面板：${project.webuiUrl}`,
   ];
+  if (project.webuiUrl) lines.push(`管理面板：${project.webuiUrl}`);
   if (project.adapterPorts) lines.push(`适配器端口：${project.adapterPorts}`);
   lines.push('', '## MCP 支持', project.mcpSupport, '', '## 常见坑');
   for (const item of project.pitfalls) lines.push(`- ${item}`);
@@ -72,25 +72,24 @@ function guideText() {
 }
 
 function infoText() {
-  return [
+  const lines = [
     `项目：${project.nameCn}（${project.key}）`,
     `定位：${project.oneLiner}`,
     `协议：${project.license}`,
     `Stars：${project.stars}（采集于 ${project.collectedAt}）`,
     `官方仓库：${project.officialRepo}`,
     `官方文档：${project.officialDocs}`,
-    `支持平台：${project.platforms}`,
-    `可接入模型 / 工作流：${project.models}`,
     `MCP 支持：${project.mcpSupport}`,
-  ].join('\n');
+    ...(project.highlights || []),
+  ];
+  return lines.join('\n');
 }
 
 function sections() {
   return [
     { title: '部署步骤', text: project.deploy.steps.join('\n') },
     { title: '管理面板与端口', text: [project.webuiUrl, project.adapterPorts].filter(Boolean).join(' ') },
-    { title: '支持平台', text: project.platforms },
-    { title: '模型与工作流', text: project.models },
+    { title: '项目要点', text: (project.highlights || []).join('\n') },
     { title: 'MCP 支持', text: project.mcpSupport },
     { title: '常见坑', text: project.pitfalls.join('\n') },
     { title: '项目定位', text: project.oneLiner },

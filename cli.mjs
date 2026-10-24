@@ -57,7 +57,7 @@ if (cmd === 'get') {
   console.log(`# ${project.nameCn} 部署指南（第三方指南，非官方）\n`);
   console.log('官方部署步骤：');
   for (const step of project.deploy.steps) console.log(`  ${step}`);
-  console.log(`\n管理面板：${project.webuiUrl}`);
+  if (project.webuiUrl) console.log(`\n管理面板：${project.webuiUrl}`);
   if (project.adapterPorts) console.log(`适配器端口：${project.adapterPorts}`);
   console.log('\n常见坑：');
   for (const item of project.pitfalls) console.log(`- ${item}`);
@@ -69,8 +69,7 @@ if (cmd === 'get') {
   console.log(`Stars：${project.stars}（采集于 ${project.collectedAt}）`);
   console.log(`官方仓库：${project.officialRepo}`);
   console.log(`官方文档：${project.officialDocs}`);
-  console.log(`支持平台：${project.platforms}`);
-  console.log(`模型 / 工作流：${project.models}`);
+  for (const item of project.highlights || []) console.log(item);
   console.log(`MCP 支持：${project.mcpSupport}`);
 } else if (cmd === 'search') {
   const query = args.slice(1).join(' ').trim();
@@ -82,8 +81,7 @@ if (cmd === 'get') {
   const pool = [
     ['部署步骤', project.deploy.steps.join(' ')],
     ['管理面板与端口', [project.webuiUrl, project.adapterPorts].filter(Boolean).join(' ')],
-    ['支持平台', project.platforms],
-    ['模型与工作流', project.models],
+    ['项目要点', (project.highlights || []).join(' ')],
     ['MCP 支持', project.mcpSupport],
     ['常见坑', project.pitfalls.join(' ')],
   ];
