@@ -67,6 +67,15 @@ docker compose --profile all up -d
 
 启动后浏览器访问 [http://127.0.0.1:5300](http://127.0.0.1:5300)（管理面板）。适配器端口 2280-2285（按需映射）。（来源：[https://docs.langbot.app/en/deploy/langbot/docker.md](https://docs.langbot.app/en/deploy/langbot/docker.md)）
 
+## 验证状态
+
+| 场景 | 状态 |
+|---|---|
+| MCP 接入（百度搭子，Windows） | 已验证 2026-10-24 |
+| Docker 部署（git clone + docker compose） | 未实测 |
+
+> 「已验证」表示本机实际执行过并成功；「未实测」表示仅按官方文档整理，未跑通。
+
 ## MCP 接入
 
 LangBot 原生支持 MCP 协议（官方仓库自带 .mcp.json），stdio MCP 由 Box Runtime 托管。部署完成后可在管理面板添加 MCP 服务器与 Skills，把机器人变成真正的 Agent。

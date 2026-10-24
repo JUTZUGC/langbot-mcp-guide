@@ -18,6 +18,16 @@
     "webuiUrl": "http://127.0.0.1:5300",
     "adapterPorts": "2280-2285",
     "collectedAt": "2026-10-23",
+    "verification": [
+      [
+        "MCP 接入（百度搭子，Windows）",
+        "已验证 2026-10-24"
+      ],
+      [
+        "Docker 部署（git clone + docker compose）",
+        "未实测"
+      ]
+    ],
     "deploy": {
       "type": "docker",
       "steps": [
