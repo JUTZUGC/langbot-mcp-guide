@@ -87,6 +87,8 @@ if (readme && guide) {
   }
   if (!readme.includes(guide.project.officialRepo)) fail('README.md 未引用官方仓库链接');
   if (!readme.includes(guide.project.officialDocs)) fail('README.md 未引用官方文档链接');
+  if (!readme.includes('绝对路径')) fail('README.md 的 MCP 接入段必须写明用绝对路径注册');
+  if (!readme.includes('"type": "local"')) fail('README.md 未给出百度搭子的 local 注册写法');
   if (!readme.includes(guide.project.collectedAt)) fail('README.md 未标注采集日期');
 }
 
@@ -97,10 +99,11 @@ if (mcpText) {
     const servers = Object.values(mcp.mcpServers || {});
     if (!servers.length) fail('.mcp.json 缺少 mcpServers');
     for (const s of servers) {
-      const desc = String(s.description || '');
-      if (!desc.includes('第三方指南')) fail('.mcp.json 的 server description 必须出现「第三方指南」');
-      if (/官方\s*MCP/.test(desc)) fail('.mcp.json 出现「官方 MCP」');
       if (!s.command) fail('.mcp.json 的 server 缺少 command');
+      if (!Array.isArray(s.args)) fail('.mcp.json 的 server 缺少 args 数组');
+      for (const key of ['cwd', 'description']) {
+        if (key in s) fail(`.mcp.json 不能包含 ${key}：百度搭子为 strict 校验，多余字段会让整条定义非法`);
+      }
     }
   } catch (e) {
     fail(`.mcp.json 不是合法 JSON：${e.message}`);

@@ -69,13 +69,22 @@ docker compose --profile all up -d
 
 LangBot 原生支持 MCP 协议（官方仓库自带 .mcp.json），stdio MCP 由 Box Runtime 托管。部署完成后可在管理面板添加 MCP 服务器与 Skills，把机器人变成真正的 Agent。
 
-本仓库自带一个零依赖的 MCP server（`mcp-server.mjs`）与 `.mcp.json`，在支持 MCP 的客户端里可直接接入：
+本仓库自带一个零依赖的 MCP server（`mcp-server.mjs`），读取同目录的 `guide.json`，提供 `get_guide` / `search_guide` / `get_project_info` 三个工具，内容均来自官方文档（采集日期 2026-10-23）。
 
-```bash
-node mcp-server.mjs
+**在百度搭子里接入**：客户端不扫描仓库里的配置文件，需要由 AI 通过工作区的 MCP 注册接口注册，并且必须使用**绝对路径**（运行时的工作目录是会话目录，不是仓库目录）：
+
+```json
+{
+  "type": "local",
+  "command": ["node", "<仓库绝对路径>/mcp-server.mjs"]
+}
 ```
 
-提供 `get_guide` / `search_guide` / `get_project_info` 三个工具，内容均来自官方文档（采集日期 2026-10-23）。
+部署完成后，直接在同一个对话框里说：
+
+> 把 <仓库绝对路径>/mcp-server.mjs 用绝对路径注册到当前工作区的 MCP 配置里
+
+**其它 MCP 客户端**：仓库根目录的 `.mcp.json` 只是通用写法（`command` + `args`），接入时同样要把 `args` 改成绝对路径。
 
 > 使用范围：该 MCP 仅在百度搭子中可用；其它客户端调用会返回 `HOST_NOT_ALLOWED`，并附带下载与部署指引。
 
