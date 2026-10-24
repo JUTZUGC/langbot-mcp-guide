@@ -13,9 +13,11 @@
    打开[百度搭子官网](https://www.dumate.cn/)，下载电脑端并安装，用你的账号登录。
 
 2. **发送部署指令**
-   进入对话窗口，直接发这一句：
+   进入对话窗口，直接复制这一句发出去：
 
-   > 你好，帮我从 github 部署 JUTZUGC/langbot-mcp-guide 到我的电脑上
+   ```text
+   你好，帮我从 github 部署 JUTZUGC/langbot-mcp-guide 到我的电脑上
+   ```
 
 3. **跟着对话往下走**
    AI 会自动拉取代码并执行官方部署命令（`git clone` + `docker compose`），按它的提示确认即可，结束时它会告诉你访问地址。
